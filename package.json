@@ -1,0 +1,28 @@
+{
+  "name": "aqualiusserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SatvikVejendla/AqualiusServer.git"
+  },
+  "author": "SatvikVejendla",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SatvikVejendla/AqualiusServer/issues"
+  },
+  "homepage": "https://github.com/SatvikVejendla/AqualiusServer#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "discord.js": "^12.4.1",
+    "puppeteer": "^5.5.0"
+  },
+  "engines": {
+    "node": "12.19.0",
+    "npm": "6.14.8"
+  }
+}
