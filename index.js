@@ -293,4 +293,4 @@ client.on("message", (msg) => {
     msg.channel.send("Number of people: " + value);
   }
 });
-client.login("Nzc2NTUzNDg3MjQ0MDY2ODY2.X62jyw.CUcpbd2DSF06srVZ4JyhgVp6NHA");
+client.login(process.env.TOKEN);
