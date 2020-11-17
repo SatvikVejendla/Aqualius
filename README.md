@@ -8,4 +8,4 @@ The way this bot works is by deploying to a third-party application, Heroku, whi
 If you would like to make this bot with Heroku or have any questions, reach out to me at satvej1@gmail.com.
 
 Link to invite the bot to your server: https://discord.com/oauth2/authorize?client_id=776553487244066866&scope=bot
-None of the data is stored anywhere. All your commands are private to you.
+None of the data is stored anywhere. All your commands are private to you (and of course the people in your server).
