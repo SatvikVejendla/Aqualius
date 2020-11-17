@@ -27,9 +27,10 @@ client.on("message", (msg) => {
     msg.channel.send(
       "```Manage polls.\n\n-create poll (poll description)\t\t\t\tCreates a new poll\n```"
     );
+    msg.delete();
   } else if (txt.startsWith("-misc help")) {
     msg.channel.send(
-      "```Miscellaneous Commands\n\n-roll die\t\t\t\t\t\t\t\t Rolls a 6-sided die\n-flip coin\t\t\t\t\t\t\t\tFlips a coin\n-spam (textchannel)\t\t\t\t\t   Goes to a text channel and spams. Useful for pranks\n-say (text)\t\t\t\t\t\t\t\tMakes the bot say what you want```"
+      "```Miscellaneous Commands\n\n-roll die\t\t\t\t\t\t\t\t Rolls a 6-sided die\n-flip coin\t\t\t\t\t\t\t\tFlips a coin\n-spam (textchannel)\t\t\t\t\t   Goes to a text channel and spams. Useful for pranks\n-say (text)\t\t\t\t\t\t\t   Makes the bot say what you want\n-member count\t\t\t\t\t\t\t Tells you how many members are in the server```"
     );
   } else if (txt.startsWith("-create poll")) {
     msg.channel.send(txt.split("-create poll ")[1]).then((m) => {
@@ -246,34 +247,50 @@ client.on("message", (msg) => {
       msg.channel.send("You do not have permission to use this command.");
     }
   } else if (txt.startsWith("-create text channel ")) {
-    const name = txt.split("-create text channel ")[1];
-    msg.guild.channels.create(name, { reason: "New Channel" });
-    msg.channel.send("The text channel " + name + " has been created.");
+    if (msg.member.hasPermission("MANAGE_CHANNELS")) {
+      const name = txt.split("-create text channel ")[1];
+      msg.guild.channels.create(name, { reason: "New Channel" });
+      msg.channel.send("The text channel " + name + " has been created.");
+    } else {
+      msg.channel.send("You do not have permission to use this command");
+    }
   } else if (txt.startsWith("-create voice channel ")) {
-    const name = txt.split("-create voice channel ")[1];
-    msg.guild.channels.create(name, { type: "voice" });
-    msg.channel.send("The voice channel " + name + " has been created.");
-  } else if (txt.startsWith("-roll die")) {
+    if (msg.member.hasPermission("MANAGE_CHANNELS")) {
+      const name = txt.split("-create voice channel ")[1];
+      msg.guild.channels.create(name, { type: "voice" });
+      msg.channel.send("The voice channel " + name + " has been created.");
+    } else {
+      msg.channel.send("You do not have permission to use thi command");
+    }
+  } else if (
+    txt.startsWith("-roll die") ||
+    txt.startsWith("-roll dice") ||
+    txt.startsWith("-dice roll") ||
+    txt.startsWith("-die roll")
+  ) {
     var num = parseInt(Math.random() * 6) + 1;
     msg.channel.send("Dice Roll: " + num);
-  } else if (txt.startsWith("-flip coin")) {
+  } else if (txt.startsWith("-flip coin") || txt.startsWith("-coin flip")) {
     var num = parseInt(Math.random() * 2) + 1;
     var word = num == 1 ? "Coin Flip: Heads" : "Coin Flip: Tails";
     msg.channel.send(word);
   } else if (txt.startsWith("-spam ")) {
-    const ch = msg.mentions.channels.first();
-    var spamcommand = "";
-    for (var i = 0; i < 1000; i++) {
-      spamcommand += "HI";
+    if (msg.member.hasPermission("MANAGE_ROLES")) {
+      const ch = msg.mentions.channels.first();
+      var spamcommand = "";
+      for (var i = 0; i < 1000; i++) {
+        spamcommand += "HI";
+      }
+      ch.send(spamcommand);
+      ch.send(spamcommand);
+      ch.send(spamcommand);
+      ch.send(spamcommand);
+    } else {
+      msg.channel.send("You do not have permission to use this command");
     }
-    ch.send(spamcommand);
-    ch.send(spamcommand);
-    ch.send(spamcommand);
-    ch.send(spamcommand);
   } else if (txt.startsWith("-member count")) {
     const value = msg.guild.memberCount;
     msg.channel.send("Number of people: " + value);
-  } else if (txt.startsWith("-pls")) {
   }
 });
-client.login(process.env.TOKEN);
+client.login("Nzc2NTUzNDg3MjQ0MDY2ODY2.X62jyw.CUcpbd2DSF06srVZ4JyhgVp6NHA");
