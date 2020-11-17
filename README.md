@@ -1,6 +1,6 @@
 # Aqualius
-A useful discord bot I programmed in 3 days. Prior to these 3 days, I had no knowledge whatsoever of how to code a discord bot. I didn't even know that there is a package called "discord.js". I learned all the necessary code in 3 days.
 Hello. It looks like you are intersted in Aqualius.
+A useful discord bot I programmed in 3 days. Prior to these 3 days, I had no knowledge whatsoever of how to code a discord bot. I didn't even know that there is a package called "discord.js". I learned all the necessary code in 3 days.
 
 This bot is basically a combination of MEE6, Pollbot, with some additional features.
 
