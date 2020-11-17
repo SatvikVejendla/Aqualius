@@ -6,6 +6,7 @@ const client = new Discord.Client();
 client.on("ready", () => {
   console.log("running as " + client.user.tag);
   client.user.setActivity("-help", { type: "PLAYING" });
+  client.user.setUsername("Aqualius");
 });
 var guildid = null;
 client.on("guildcreate", (data) => {
